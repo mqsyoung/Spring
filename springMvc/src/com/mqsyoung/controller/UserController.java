@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
 	
-	
 	@RequestMapping("test")
-	public void testSpringMvc(){
+	public String testSpringMvc(){
 		
 		System.out.println("123");
+		
+		return "success";
 	}
 }
