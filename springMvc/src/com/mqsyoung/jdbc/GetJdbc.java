@@ -4,6 +4,8 @@ import java.sql.Connection;
 
 import javax.sql.DataSource;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 /**
  * 获取和释放数据库连接
@@ -14,13 +16,13 @@ import javax.sql.DataSource;
 
 public class GetJdbc {
 	
-//	private static DataSource dataSource = new ComboPooledDataSource("webDataSource");
+ 	private static DataSource dataSource = new ComboPooledDataSource("webDataSource");
 	
 	/**
 	 * 获取数据库链接
 	 * @return
 	 */
-	/*	public static Connection getConection(){
+	 	public static Connection getConection(){
 		
 		Connection conn =null;
 		
@@ -34,12 +36,12 @@ public class GetJdbc {
 		
 		return conn;
 	}
-	*/
+	 
 	/**
 	 * 释放数据库连接
 	 * @param conn
 	 */
-	public static void releaseConection(Connection conn){/*
+	public static void releaseConection(Connection conn){ 
 		
 		if(conn != null){
 			try {
@@ -50,7 +52,7 @@ public class GetJdbc {
 				e.printStackTrace();
 			}
 		}
-	*/}
+	 }
 	
 	
 	
