@@ -9,7 +9,7 @@ import com.mqsyoung.jdbc.GetJdbc;
 public class JdbcUtil {
 
 	
-	  @Test
+/*	  @Test
 	  public void testGetJdbc(){
 		  Connection conn = null;
 		  try {
@@ -28,5 +28,5 @@ public class JdbcUtil {
 		  }
 		  
 		  
-	  }
+	  }*/
 }
