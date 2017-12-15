@@ -26,6 +26,35 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- 按顺序进行加载 -->
+		<property name="order" value="1"></property>
+		<!-- 如果加载的文件不存在则忽略，不报 fileNotFoundException -->
+		<property name="ignoreUnresolvablePlaceholders" value="true"></property>
+		
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+		
+	</bean>
+	
+	<!-- 配置数据源 dataSource -->
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="user" value="${jdbc.user}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClass}"></property>
+		<property name="jdbcUrl" value="${jdbc.url}"></property>
+	</bean>
+	
+	
+	<!-- 配置事物管理器 -->
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"></property>
+	</bean>
 	
 
 </beans>
