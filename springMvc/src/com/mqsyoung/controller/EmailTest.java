@@ -32,7 +32,7 @@ public class EmailTest {
 	//设置发送者邮箱，用户名，密码
 	private String SEND_USER="";
 	private String SEND_UNAME="";
-	private String SEND_PASSWORD="";
+	private String SEND_PASSWORD="mengqingsen611";
 	
 	
 	//建立会话
@@ -62,6 +62,7 @@ public class EmailTest {
 				
 			
 			 try {
+				 
 				 //邮件发送者
 				 InternetAddress from = new InternetAddress(SEND_UNAME);
 				 
@@ -83,7 +84,12 @@ public class EmailTest {
 				//发送消息
 				Transport transport =  session.getTransport("stmp");
 				
+				//相当于登录邮箱
 				transport.connect(VALUE_SMTP, SEND_USER, SEND_PASSWORD);
+				
+				transport.send(message);
+				
+				transport.close();
 				
 				
 			} catch (MessagingException e) {
@@ -93,5 +99,15 @@ public class EmailTest {
 				
 			}
 			
+		
+		public static void main(String[] args) {
+			
+			EmailTest email = new EmailTest();
+			
+			email.doSendEmail("emailTest", "这是一封测试邮件……", "mqsyoung@163.com");
+			
+			
+			
+		}
 	
 }

@@ -9,6 +9,7 @@
 	<configs>
 		<config>config/applicationContext.xml</config>
 		<config>config/spring-mvc.xml</config>
+		<config>config/mybatis.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

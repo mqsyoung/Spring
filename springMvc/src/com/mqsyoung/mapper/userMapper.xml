@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mqsyoung.mapper.dao.UserMapper">
+
+<!-- 实体类  和 数据库返回的字段进行一一映射   , type 返回的模板对象--》实体类-->
+<resultMap id="BaseResultMap"  type="com.mqsyoung.entity.User" >
+<!-- column 数据库查询出字段   ，  jdbcType 类型     property 实体类属性 -->
+	<result column="" jdbcType="" property=""/>
+
+</resultMap>
+<!-- jdbcType=Integer 传入参数的，数据类型        ,BaseResultMap 对应的返回结果     ，  parameterType 参数类型  -->
+		<select id="getUser" resultMap="BaseResultMap"  parameterType="com.mqsyoung.entity.User">
+				select * from user where id = #{id,jdbcType=Integer}
+		</select>
+
+
+</mapper>
